@@ -1,0 +1,28 @@
+services:
+    database:
+        image: postgres:17
+        environment:
+          - POSTGRES_USER=migrations
+          - POSTGRES_DB=docstore
+          - POSTGRES_PASSWORD=mysecurepassword
+        ports:
+          - 5432:5432
+        volumes:
+          - db-data:/var/lib/postgresql/data
+    storage:build:
+        image: minio/minio
+        ports:
+          - '9000:9000'
+          - '9001:9001'
+        volumes:
+          - 'minio_data:/data'
+        environment:
+          - MINIO_ROOT_USER=storageroot
+          - MINIO_ROOT_PASSWORD=storagerootpassword
+          - MINIO_DEFAULT_BUCKETS=docstore
+        
+
+volumes:
+  db-data:
+  minio_data:
+    driver: local

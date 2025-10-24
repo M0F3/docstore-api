@@ -1,0 +1,20 @@
+{
+    // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+    // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+    // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "Launch API",
+        "type": "go",
+        "request": "launch",
+        "mode": "debug",
+        "program": "./cmd/web/main.go",
+        "env": {
+            "APP_DATABASE_CONNECTION_URL": "postgres://app:super-secure-app-database-connection@localhost:5432/docstore?sslmode=disable",
+            "APP_JWT_SECRET":"42397ztubjsnflakjehrtow4ztJUGZ§kaldjhfgdif",
+            "APP_ADMIN_DATABASE_CONNECTION_URL":"postgres://migrations:mysecurepassword@localhost:5432/docstore?sslmode=disable"
+        }
+    }
+    ]
+}
